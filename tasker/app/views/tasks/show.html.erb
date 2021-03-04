@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @task.user.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<%# <p>
+  <strong>Lasteditdate:</strong>
+  <%= @task.lastEditDate !!!!>
+</p> %>
+
+<p>
+  <strong>Isdone:</strong>
+  <%= @task.isDone %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) if user_signed_in? && current_user == @gif.user %> |
+<%= link_to 'Back', tasks_path %>

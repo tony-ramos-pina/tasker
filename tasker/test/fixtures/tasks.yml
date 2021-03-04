@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyText
+  description: MyText
+  lastEditDate: 2021-03-04 15:42:33
+  isDone: false
+
+two:
+  user: two
+  title: MyText
+  description: MyText
+  lastEditDate: 2021-03-04 15:42:33
+  isDone: false
