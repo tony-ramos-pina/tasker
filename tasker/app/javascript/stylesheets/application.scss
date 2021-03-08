@@ -5,7 +5,11 @@
 
 .a 
 {
-    @apply bg-transparent;
+    @apply text-gray-600 bg-transparent;
+}
+.a:visited
+{
+    @apply text-gray-600 bg-transparent;
 }
 
 .a:hover
@@ -111,6 +115,33 @@
 .btn-done:focus
 {
     @apply outline-none ring-2 ring-offset-0 ring-green-600 ;
+}
+
+.form_input
+{
+    @apply bg-gray-100 block w-full pl-4 pr-4 sm:text-sm border-gray-300 rounded;
+}
+
+.form_input:focus
+{
+    @apply outline-none ring-2 ring-yellow-400 ring-offset-yellow-700 shadow-lg;
+}
+
+.common_btn
+{
+    @apply inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-yellow-500; 
+}
+.common_btn:visited
+{
+    @apply text-white;
+}
+.common_btn:hover
+{
+    @apply bg-yellow-600;
+}
+.common_btn:focus
+{
+    @apply outline-none ring-2 ring-offset-0 ring-yellow-500;
 }
 
 
