@@ -3,6 +3,115 @@
 
 //Custom styles will be here:
 
+.a 
+{
+    @apply bg-transparent;
+}
+
+.a:hover
+{
+    @apply bg-transparent;
+}
+
+.loglink
+{
+    @apply whitespace-nowrap text-base font-medium text-gray-500 ;
+}
+
+.logo
+{
+    @apply w-auto my-0 ml-8 text-yellow-500 text-5xl;
+}
+
+.logo:visited
+{
+    @apply text-yellow-500;
+}
+
+.logo:hover
+{
+    @apply bg-transparent text-yellow-400;
+}
+
+.loglink:visited
+{
+    @apply text-gray-500;
+}
+
+.loglink:hover
+{
+    @apply bg-transparent text-gray-900;
+}
+
+.logbtn
+{
+    @apply  whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-500 ;
+}
+
+.logbtn:visited
+{
+    @apply text-white;
+}
+
+.logbtn:hover
+{
+    @apply bg-yellow-600 text-white;
+}
+
+.logbtn_mobile
+{
+    @apply w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-500 ;
+}
+
+.logbtn_mobile:visited
+{
+    @apply text-white;
+}
+
+.logbtn_mobile:hover
+{
+    @apply bg-yellow-600 text-white;
+}
+
+.btn-undone
+{
+    @apply inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-red-600 bg-red-400 ;
+}
+
+.btn-undone:visited
+{
+    @apply text-red-600;
+}
+
+.btn-undone:hover
+{
+    @apply bg-red-900 ;
+}
+
+.btn-undone:focus
+{
+    @apply outline-none ring-2 ring-red-600 ;
+}
+
+.btn-done
+{
+    @apply inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-green-600 bg-green-400 ;
+}
+
+.btn-done:visited
+{
+    @apply text-green-600;
+}
+
+.btn-done:hover
+{
+    @apply bg-green-900 ;
+}
+
+.btn-done:focus
+{
+    @apply outline-none ring-2 ring-offset-0 ring-green-600 ;
+}
 
 
 // end of styles
