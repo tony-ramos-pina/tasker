@@ -119,7 +119,7 @@
 
 .form_input
 {
-    @apply bg-gray-100 block w-full pl-4 pr-4 sm:text-sm border-gray-300 rounded;
+    @apply bg-gray-100 block w-full py-1 px-4 sm:text-sm border-gray-300 rounded;
 }
 
 .form_input:focus
@@ -184,6 +184,21 @@
 .home_btn_alt:hover
 {
     @apply bg-yellow-500 bg-opacity-40 ;
+}
+
+.show_desc
+{
+    @apply bg-gray-50 block w-full pl-4 pr-4 sm:text-sm ring-2 ring-yellow-100 rounded shadow-xl p-4 mb-4 text-center;
+}
+
+.show_tags
+{
+    @apply block w-full pl-4 pr-4 sm:text-sm rounded shadow-md p-1 mb-4 text-center;
+}
+
+.show_time
+{
+    @apply block w-full pl-4 pr-4 sm:text-sm rounded shadow-md p-1 mb-4 text-center;
 }
 
 
