@@ -161,6 +161,31 @@
     @apply outline-none ring-2 ring-offset-0 ring-red-500;
 }
 
+.home_btn
+{
+    @apply flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-700 bg-white sm:px-8 ;
+}
+.home_btn:visited
+{
+    @apply text-yellow-700 ;
+}
+.home_btn:hover
+{
+    @apply bg-white bg-opacity-80 text-yellow-600 ;
+}
+.home_btn_alt
+{
+    @apply flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-500 bg-opacity-80 sm:px-8 ;
+}
+.home_btn_alt:visited
+{
+    @apply text-white ;
+}
+.home_btn_alt:hover
+{
+    @apply bg-yellow-500 bg-opacity-40 ;
+}
+
 
 // end of styles
 

@@ -86,7 +86,7 @@ class TasksController < ApplicationController
     @doneTask = current_user.tasks.find(params[:id])
     respond_to do |format|
       if @doneTask.update(isDone: true, lastEditDate: DateTime.now)
-        format.html { redirect_to @doneTask, notice: "Task was successfully set as done." }
+        format.html { redirect_to tasks_path, notice: "Task was successfully set as done." }
         format.json { render :index, status: :ok, location: @undoneTask }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -99,7 +99,7 @@ class TasksController < ApplicationController
     @undoneTask = current_user.tasks.find(params[:id])
     respond_to do |format|
       if @undoneTask.update(isDone: false, lastEditDate: DateTime.now)
-        format.html { redirect_to @undoneTask, notice: "Task was successfully set as done." }
+        format.html { redirect_to tasks_path, notice: "Task was successfully set as done." }
         format.json { render :index, status: :ok, location: @undoneTask }
       else
         format.html { render :edit, status: :unprocessable_entity }
