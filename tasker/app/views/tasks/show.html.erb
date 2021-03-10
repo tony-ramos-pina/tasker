@@ -1,55 +1,49 @@
-  <div class="max-w-xl mx-auto">
+<div class="max-w-xl mx-auto">
 
-    <h1 class="text-4xl text-yellow-600 text-opacity-25">My Task</h1>
+  <h1 class="text-4xl text-yellow-600 text-opacity-25">My Task</h1>
 
-    <div class="my-8">
+  <div class="my-8">
   
-      <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-      <div class="my-4 flex justify-center">
-        <%# <strong>Title:</strong> %>
-        <h1 class="text-2xl"><%= @task.title %></h1>
-        <%# <%= @task.title > %>
+    <div class="my-4 flex justify-center">
+      <h1 class="text-2xl"><%= @task.title %></h1>
+    </div>
+
+    <div class="justify-center">
+      <h3 class="text-gray-500">Description</h3>
+      <div class="show_desc">
+        <%= @task.description %>
       </div>
+    </div>
 
-      <div class="justify-center">
-        <h3 class="text-gray-500">Description</h3>
-        <div class="show_desc">
-          <%= @task.description %>
-        </div>
+    <div class="justify-center">
+      <h3 class="text-gray-500">Tags</h3>
+      <div class="show_tags">
+        <%= @task.tag_list %>
       </div>
+    </div>
 
-      <div class="justify-center">
-        <h3 class="text-gray-500">Tags</h3>
-        <div class="show_tags">
-          <%= @task.tag_list %>
-        </div>
+    <div class="justify-center">
+      <h3 class="text-gray-500">Last Edit Date</h3>
+      <div class="show_time">
+        <%= @task.lastEditDate.strftime("%H:%M") %> -
+        <%= @task.lastEditDate.to_date %>
       </div>
+    </div>
 
-      <div class="justify-center">
-        <h3 class="text-gray-500">Last Edit Date</h3>
-        <div class="show_time">
-          <%= @task.lastEditDate.strftime("%H:%M") %> -
-          <%= @task.lastEditDate.to_date %>
-        </div>
-      </div>
+    <div class="my-4 flex justify-center items-center">
+      <% if @task.isDone == true %>
+        <h1 class="text-gray-500 mr-2">This task is done </h1> <i class="text-green-400 fas fa-check"></i>
+      <% else %>
+        <h1 class="text-gray-500 mr-2">This task is not done yet</h1> <h1 class="text-red-400 fas fa-times"></h1>
+      <% end %>
+    </div>
 
-      <%# <p>
-        <strong>Lasteditdate:</strong>
-        <%= @task.lastEditDate !!!!>
-      </p> %>
-
-      <div class="my-4 flex justify-center items-center">
-        <% if @task.isDone == true %>
-          <h1 class="text-gray-500 mr-2">This task is done </h1> <i class="text-green-400 fas fa-check"></i>
-        <% else %>
-          <h1 class="text-gray-500 mr-2">This task is not done yet</h1> <h1 class="text-red-400 fas fa-times"></h1>
-        <% end %>
-      </div>
-
-      <div>
-        <%= link_to 'Edit', (edit_task_path(@task) if user_signed_in? && current_user == @task.user), class: "common_btn" %> |
-        <%= link_to 'Back', tasks_path %>
-      </div>
-
+    <div>
+      <%= link_to 'Edit', (edit_task_path(@task) if user_signed_in? && current_user == @task.user), class: "common_btn" %> |
+      <%= link_to 'Back', tasks_path %>
+    </div>
+    
+  </div>
 </div>
