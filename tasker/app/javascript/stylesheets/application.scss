@@ -144,6 +144,23 @@
     @apply outline-none ring-2 ring-offset-0 ring-yellow-500;
 }
 
+.warning_btn
+{
+    @apply inline-flex items-center px-2 py-1 border border-red-300 shadow-sm text-xs font-medium rounded-md text-gray-400 bg-white ;
+}
+.warning_btn:visited
+{
+    @apply text-gray-400 bg-white;
+}
+.warning_btn:hover
+{
+    @apply bg-gray-50 text-gray-700 border-red-500;
+}
+.warning_btn:focus
+{
+    @apply outline-none ring-2 ring-offset-0 ring-red-500;
+}
+
 
 // end of styles
 
