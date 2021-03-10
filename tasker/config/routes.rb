@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :tasks
+  resources :tasks do
+    member do
+      get :setAsDone
+      patch :setAsDone
+      get :setAsNotDone
+      patch :setAsNotDone
+    end
+  end
 
   
   root to: "tasks#index"
