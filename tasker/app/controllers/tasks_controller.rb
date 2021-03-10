@@ -5,26 +5,14 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = current_user.tasks
-    @done_tasks , @undone_tasks = [], []
+    #@done_tasks , @undone_tasks = [], []
     
     @done_tasks = @tasks.where(isDone: true)
     @undone_tasks = @tasks.where(isDone: false)
 
-    @undone_tasks.sort_by { |item| item.lastEditDate }.reverse
-    @done_tasks.sort_by { |item| item.lastEditDate }.reverse
+    @undone_tasks = @undone_tasks.order(lastEditDate: :desc)
+    @done_tasks = @undone_tasks.order(lastEditDate: :desc)
 
-
-    #tests:
-    #@tasks = current_user.tasks.sort_by { |item| item.lastEditDate }.reverse
-    #@done_tasks = @tasks.where(params[:isDone] => true)
- 
-    # current_user.tasks.each do |task|
-    #   if task.isDone == true
-    #     @done_tasks << task
-    #   else
-    #     @undone_tasks << task
-    #   end
-    # end
   end
 
   # GET /tasks/1 or /tasks/1.json
