@@ -254,6 +254,17 @@ a:hover
     @apply outline-none ring-2 ring-offset-0 ring-yellow-500;
 }
 
+.search_input
+{
+    @apply block w-full bg-transparent rounded-md py-2 pl-10 pr-3 text-sm shadow-sm placeholder-gray-400 sm:text-sm;
+}
+.search_input:focus
+{
+    @apply outline-none bg-white border-gray-400 shadow-xl text-gray-900 placeholder-gray-500;
+}
+
+
+
 // end of styles
 
 @import "tailwindcss/utilities";
