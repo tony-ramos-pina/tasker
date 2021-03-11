@@ -24,7 +24,7 @@
 
     <div class="field">
       <%= form.label :tag_list, "Tag list (separeted by commas)" %>
-      <%= form.text_field :tag_list, class: "form_input" %>
+      <%= form.text_field :tag_list, value: form.object.tag_list.join(", "), class: "form_input" %>
     </div>
 
     <div class="field">

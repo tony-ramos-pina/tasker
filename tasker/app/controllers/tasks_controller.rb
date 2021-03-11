@@ -96,6 +96,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def searchByTag
+    @tagged_tasks = current_user.tasks.tagged_with(params[:tag])
+    @tagged_tasks = @tagged_tasks.order(lastEditDate: :desc)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

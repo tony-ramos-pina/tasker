@@ -79,7 +79,7 @@ a:hover
 
 .btn-undone
 {
-    @apply inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-red-600 bg-red-400 ;
+    @apply inline-flex items-center py-1.5 px-2 border border-transparent rounded-full shadow-sm text-red-600 bg-red-400 ;
 }
 
 .btn-undone:visited
@@ -224,6 +224,11 @@ a:hover
 .task_table_title
 {
     @apply flex justify-center px-6 py-3 mb-1 text-base bg-white shadow-md rounded-sm ring-offset-0 ring-1 ring-yellow-100;
+}
+
+.task_table_title:hover
+{
+    @apply ring-offset-0 ring-1 ring-yellow-200;
 }
 
 .task_table_tag
