@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     @undone_tasks = @tasks.where(isDone: false)
 
     @undone_tasks = @undone_tasks.order(lastEditDate: :desc)
-    @done_tasks = @undone_tasks.order(lastEditDate: :desc)
+    @done_tasks = @done_tasks.order(lastEditDate: :desc)
 
   end
 

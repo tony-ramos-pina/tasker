@@ -1,73 +1,107 @@
-<p id="notice"><%= notice %></p>
+<div class="max-w-6xl mx-auto">
 
-<h1>Tasks</h1>
+  <h1 class="text-4xl text-opacity-25"> <%= current_user.first_name %>'s Tasks</h1>
 
+  <div class="my-8">
+    <p id="notice"><%= notice %></p>
+    <div class="div_add_task">
+      <%= link_to 'New Task', new_task_path, class: "add_task_btn" %>
+    </div>
 
-<h1>Tasks To Do</h1>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Lasteditdate</th>
-      <th>Isdone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="tasks_container">
 
-  <tbody>
-    <% @undone_tasks.each do |task| %>
-      <tr>
-        <td><%= task.user_id %></td>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.lastEditDate %></td>
-        <td><%= task.isDone %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to '', setAsDone_task_path(task), class: "btn-done fas fa-check" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="tasks_table">
 
+        <div class="task_title">
+          <h1 class=" text-xl text-yellow-500 text-opacity-60">Tasks To Do</h1>
+        </div>
 
+        <div class="max-w-full">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-<h1>Done Tasks</h1>
+            <tbody>
+              <% @undone_tasks.each do |task| %>
+                <div>
+                  <tr class="shadow-lg rounded-md w-80">
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Lasteditdate</th>
-      <th>Isdone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <td>
+                      <div class="block px-4 py-1.5">
+                        <%= link_to task do %>
+                          <div class="task_table_title">
+                            <%= task.title %>
+                          </div>
+                        <% end %>
+                        <div class="task_table_tag">
+                            <%= task.tag_list %>
+                        </div>
+                      </div>
+                    </td>
 
-  <tbody>
-    <% @done_tasks.each do |task| %>
-      <tr>
-        <td><%= task.user_id %></td>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.lastEditDate %></td>
-        <td><%= task.isDone %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to '', setAsNotDone_task_path(task), class: "btn-undone fas fa-times" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                    <td><%= link_to '', setAsDone_task_path(task), class: "btn-done fas fa-check" %></td>
+                    <td><%= link_to '', edit_task_path(task), class: "far fa-edit" %></td>
+                    <td><%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt mr-4" %></td>
+                  </tr>
+                </div>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
 
 
 
-<br>
+      <div class="tasks_table">
 
-<%= link_to 'New Task', new_task_path %>
+        <div class="task_title">
+          <h1 class=" text-xl text-yellow-500 text-opacity-60">Done Tasks</h1>
+        </div>
+
+        <div class="max-w-full">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @done_tasks.each do |task| %>
+                <div>
+                  <tr class="shadow-lg rounded-md">
+
+                    <td>
+                      <div class="block px-4 py-1.5">
+                        <%= link_to task do %>
+                          <div class="task_table_title">
+                            <%= task.title %>
+                          </div>
+                        <% end %>
+                        <div class="task_table_tag">
+                            <%= task.tag_list %>
+                        </div>
+                      </div>
+                    </td>
+                    
+                    <td><%= link_to '', setAsNotDone_task_path(task), class: "btn-undone fas fa-times" %></td>
+                    <td><%= link_to '', edit_task_path(task), class: "far fa-edit" %></td>
+                    <td><%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt mr-4" %></td>
+                  </tr>
+                </div>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

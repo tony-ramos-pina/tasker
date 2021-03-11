@@ -28,12 +28,35 @@
     </div>
 
     <div class="field">
-      <%= form.label :isDone, "Set as done?" %>
-      <%= form.check_box :isDone %>
+
+      <% if @task.isDone == true %>
+          <div class="flex justify-center items-center">
+            <h1 class="text-gray-500 mr-2">This task is done </h1> <i class="text-green-400 fas fa-check"></i>
+          </div>
+          <div class="flex justify-center items-center">
+            <%= form.label :isDone, "Keep it as done?", class:"mr-2" %>
+            <%= form.check_box :isDone %>
+          </div>
+        <% elsif @task.isDone == false %>
+          <div class="flex justify-center items-center">
+            <h1 class="text-gray-500 mr-2">This task is not done yet</h1> <h1 class="text-red-400 fas fa-times"></h1>
+          </div>
+          <div class="flex justify-center items-center">
+            <%= form.label :isDone, "Set as done?", class:"mr-2" %>
+            <%= form.check_box :isDone %>
+          </div>
+        <% else %>
+          <div class="flex justify-center items-center">
+            <%= form.label :isDone, "Set as done?", class:"mr-2" %>
+            <%= form.check_box :isDone %>
+          </div>
+        <% end %>
+      <%# <%= form.label :isDone, "Set as done?" %>
+      <%# <%= form.check_box :isDone > %>
     </div>
 
     <div class="actions">
-      <%= form.submit "Create Task", class: "common_btn" %>
+      <%= form.submit class: "common_btn" %>
     </div>
   <% end %>
 </div>
