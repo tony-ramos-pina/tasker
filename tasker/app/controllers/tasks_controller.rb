@@ -103,11 +103,11 @@ class TasksController < ApplicationController
 
   def search
     if params[:search].blank?  
-      redirect_to(tasks_path, alert: "Empty field!") and return  
+      redirect_to(tasks_path, alert: "Empty field!")
     else  
-      @parameter = params[:search].downcase  
-      @results = current_user.tasks.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{@parameter}%", "%#{@parameter}%")
-      @results_by_tags = current_user.tasks.tagged_with(@parameter)
+      parameter = params[:search].downcase  
+      @results = current_user.tasks.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{parameter}%", "%#{parameter}%")
+      @results_by_tags = current_user.tasks.tagged_with(parameter)
       @results = @results + @results_by_tags
       @results = @results.sort_by(&:"#{:lastEditDate}").reverse
     end
