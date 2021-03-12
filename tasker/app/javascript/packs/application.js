@@ -14,11 +14,3 @@ ActiveStorage.start()
 
 import "stylesheets/application"
 
-function openNav() {
-    document.getElementById("myNav").style.visibility = "visible";
-  }
-  
-  /* Set the width of the sidebar to 0 (hide it) */
-  function closeNav() {
-    document.getElementById("myNav").style.visibility = "hidden";
-  }
