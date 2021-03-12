@@ -18,8 +18,13 @@
                 </p>
                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                 <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                    <% if !user_signed_in? %>
                     <%= link_to "Start Tasking", new_user_registration_path, class: "home_btn" %>
                     <%= link_to "Sign in", new_user_session_path, class: "home_btn_alt" %>
+                    <% else %>
+                        <%= link_to "Start Tasking", new_task_path, class: "home_btn" %>
+                        <%= link_to "Your Tasks", tasks_path, class: "home_btn_alt" %>
+                    <% end %>
                 </div>
                 </div>
             </div>
