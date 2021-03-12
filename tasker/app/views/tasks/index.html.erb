@@ -30,14 +30,14 @@
                   <tr class="shadow-lg rounded-md w-80">
 
                     <td>
-                      <div class="block px-4 py-1.5">
+                      <div class="block px-4 pb-1.5 pt-4">
                         <%= link_to task do %>
                           <div class="task_table_title">
                             <%= task.title %>
                           </div>
                         <% end %>
                         <div class="task_table_tag">
-                            <%= task.tag_list %>
+                          <%= linked_tag_list task %>
                         </div>
                       </div>
                     </td>
@@ -77,14 +77,14 @@
                   <tr class="shadow-lg rounded-md">
 
                     <td>
-                      <div class="block px-4 py-1.5">
+                      <div class="block px-4 pb-1.5 pt-4">
                         <%= link_to task do %>
                           <div class="task_table_title">
                             <%= task.title %>
                           </div>
                         <% end %>
                         <div class="task_table_tag">
-                            <%= task.tag_list %>
+                            <%= linked_tag_list task %>
                         </div>
                       </div>
                     </td>

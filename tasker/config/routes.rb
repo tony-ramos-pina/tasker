@@ -7,12 +7,14 @@ Rails.application.routes.draw do
       patch :setAsDone
       get :setAsNotDone
       patch :setAsNotDone
+      get :searchByTag
     end
+    #collection do   
+    #end
   end
 
   get '/user' => "tasks#index", :as => :user_root
   
   root to: "main#index"
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
