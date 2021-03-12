@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_03_04_154233) do
 
-  create_table "taggings", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_154233) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_154233) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.text "title"
     t.text "description"
     t.datetime "lastEditDate"
