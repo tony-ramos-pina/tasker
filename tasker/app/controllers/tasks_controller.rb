@@ -109,7 +109,7 @@ class TasksController < ApplicationController
       @results = current_user.tasks.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{parameter}%", "%#{parameter}%")
       @results_by_tags = current_user.tasks.tagged_with(parameter)
       @results = @results + @results_by_tags
-      @results = @results.sort_by(&:"#{:lastEditDate}").reverse
+      @results = @results.sort_by(&:lastEditDate).reverse
     end
   end
 
