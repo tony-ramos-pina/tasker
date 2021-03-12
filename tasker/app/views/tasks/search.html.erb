@@ -1,0 +1,58 @@
+<div class="max-w-6xl mx-auto">
+
+    <h1 class="text-4xl text-opacity-25"> <%= current_user.first_name %>'s Tasks</h1>
+    <div class="my-8">
+        <p id="notice"><%= notice %></p>
+        <div class="tasks_container">
+            <div class="tasks_table">
+                <div class="task_title">
+                    <h1 class=" text-xl text-yellow-500 text-opacity-60">Tasks from your search - <b> <%= params[:search] %> </b> </h1>
+                </div>
+                <div class="max-w-full">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr>
+                                <th colspan="3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @results.each do |task| %>
+                                <div>
+                                    <tr class="shadow-lg rounded-md w-80">
+
+                                        <td>
+                                            <div class="block px-4 py-1.5 pt-8">
+                                                <%= link_to task do %>
+                                                    <div class="task_table_title">
+                                                        <%= task.title %>
+                                                    </div>
+                                                <% end %>
+                                                <div class="task_table_tag">
+                                                    <%= linked_tag_list task %>
+                                                </div>
+                                                <div class=" mt-1 mb-1 flex justify-center items-center">
+                                                    <% if task.isDone == true %>
+                                                        <h1 class="text-gray-500 mr-2">This task is done </h1> <i class="text-green-400 fas fa-check"></i>
+                                                    <% else %>
+                                                        <h1 class="text-gray-500 mr-2">This task is not done yet</h1> <h1 class="text-red-400 fas fa-times"></h1>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <% if task.isDone == true %>
+                                            <td><%= link_to '', setAsNotDone_task_path(task), class: "btn-undone fas fa-times" %></td>
+                                        <% else %>
+                                            <td><%= link_to '', setAsDone_task_path(task), class: "btn-done fas fa-check" %></td>
+                                        <% end %>
+                                        <td><%= link_to '', edit_task_path(task), class: "far fa-edit" %></td>
+                                        <td><%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt mr-4" %></td>
+                                    </tr>
+                                </div>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

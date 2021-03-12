@@ -1,38 +1,41 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white">
+<div x-data="{ mobileMenuOpen : false }" class="relative bg-white">
   <div class="max-w-8xl mx-auto px-4 sm:px-6">
     <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <%= link_to "", tasks_path, class: "logo fas fa-tasks" %>
       </div>
-        <% @closed = false %>
+      <% @closed = false %>
           
-        <div class="flex-grow">
-            
-          <label for="search" class="sr-only">
-              Search
-          </label>
-          <div class="relative">
-              <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-              <!-- Heroicon name: solid/search -->
-                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input id="search" name="search" class="block w-full bg-transparent rounded-md py-2 pl-10 pr-3 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-gray-400 focus:shadow-xl focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm" placeholder="Search" type="search">
-          </div>
-            
-        </div>
-
-        <div class="-mr-2 -my-2 md:hidden">
-          <button type="button" class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" aria-expanded="false">
-              <span class="sr-only">Open menu</span>
-              <!-- Heroicon name: outline/menu -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <div class="flex-grow">
+          
+        <label for="search" class="sr-only">
+            Search
+        </label>
+        <div class="relative">
+            <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+            <!-- Heroicon name: solid/search -->
+              <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
               </svg>
-          </button>
+            </div>
+            <%= form_tag(search_tasks_path, :method => "get", class: 'navbar-form navbar-left') do %>
+              <%= search_field_tag :search, params[:search], placeholder: "Search", class: "search_input" %>
+            <%= button_tag "", :class => 'hidden',:name => nil%>
+            <% end %>
         </div>
+          
+      </div>
+
+      <div class="-mr-2 -my-2 md:hidden">
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" aria-expanded="false">
+            <span class="sr-only">Open menu</span>
+            <!-- Heroicon name: outline/menu -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+      </div>
 
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
@@ -60,11 +63,8 @@
   -->
 
 
-<% if @closed == true %>
-    <div class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" >
-<% else%>
-    <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" >
-<% end %>
+
+  <div id="myNav" class="top-0 z-30 inset-x-0 p-2 transition transform origin-top-right md:hidden" :class="{ 'absolute' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false" >
     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
       <div class="pt-5 pb-6 px-5">
         <div class="flex items-center justify-between">
@@ -72,7 +72,7 @@
             <%= link_to "", root_path, class: "logo fas fa-tasks" %>
           </div>
           <div class="-mr-2">
-            <button @click="closed = true" type="button" class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
               <span class="sr-only">Close menu</span>
               <!-- Heroicon name: outline/x -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -94,11 +94,15 @@
           <% if user_signed_in? %>
 
             <p class="my-6 text-center text-base font-medium text-gray-500">
-              <input id="search" name="search" class="block w-full bg-transparent rounded-md py-2 pl-10 pr-3 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-gray-400 focus:shadow-xl focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm" placeholder="Search" type="search">
+              <%= form_tag(search_tasks_path, :method => "get", class: 'navbar-form navbar-left') do %>
+                <%= search_field_tag :search, params[:search], placeholder: "Search", class: "block w-full bg-transparent rounded-md mb-6 py-2 pl-10 pr-3 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-gray-400 focus:shadow-xl focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm" %>
+                <%= button_tag "", :class => 'hidden',:name => nil%>
+              <% end %>
+              
             </p>
             
             <p class="mb-6 text-center text-base font-medium text-gray-500">
-              <%= link_to "Account", edit_user_registration_path, class: "whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" %>
+              <%= link_to "Account", edit_user_registration_path, class: " whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" %>
             </p>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "logbtn_mobile" %>
           

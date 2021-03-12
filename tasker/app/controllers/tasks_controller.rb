@@ -101,6 +101,18 @@ class TasksController < ApplicationController
     @tagged_tasks = @tagged_tasks.order(lastEditDate: :desc)
   end
 
+  def search
+    if params[:search].blank?  
+      redirect_to(tasks_path, alert: "Empty field!")
+    else  
+      parameter = params[:search].downcase  
+      @results = current_user.tasks.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{parameter}%", "%#{parameter}%")
+      @results_by_tags = current_user.tasks.tagged_with(parameter)
+      @results = @results + @results_by_tags
+      @results = @results.sort_by(&:lastEditDate).reverse
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

@@ -7,10 +7,11 @@ Rails.application.routes.draw do
       patch :setAsDone
       get :setAsNotDone
       patch :setAsNotDone
-      get :searchByTag
+      get :searchByTag    
     end
-    #collection do   
-    #end
+    collection do   
+      get :search
+    end
   end
 
   get '/user' => "tasks#index", :as => :user_root
