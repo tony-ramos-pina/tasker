@@ -1,0 +1,10 @@
+if (<%= @task.isDone == true %>)
+{
+    $("#Done-task-<%= @task.id %>").fadeOut(250, function(){
+        $(this).remove();
+    });
+}else {
+    $("#Not-done-task-<%= @task.id %>").fadeOut(250, function(){
+        $(this).remove();
+    });   
+}
