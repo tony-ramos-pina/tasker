@@ -48,3 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

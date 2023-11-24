@@ -1,0 +1,5 @@
+$("#Done-task-<%= @task.id %>").fadeOut(250, function(){
+    $(this).remove();
+    $("#not_done_body").prepend('<%= j render "not_done_tasks", task: @task %>');
+    $("#Not-done-task-<%= @task.id %>").hide().fadeIn(250);
+});

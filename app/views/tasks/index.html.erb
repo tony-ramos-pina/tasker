@@ -1,0 +1,70 @@
+<div class="max-w-6xl mx-auto">
+
+  <h1 class="text-4xl text-opacity-25"> <%= current_user.first_name %>'s Tasks</h1>
+
+  <div class="my-8">
+    <p id="notice"><%= notice %></p>
+    <div class="div_add_task">
+      <%= link_to 'New Task', new_task_path, class: "add_task_btn" %>
+    </div>
+
+    <div class="tasks_container">
+
+      <div class="tasks_table">
+
+        <div class="task_title">
+          <h1 class=" text-xl text-yellow-500 text-opacity-60">Tasks To Do</h1>
+        </div>
+
+        <div class="max-w-full">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody id="not_done_body">
+              <% @undone_tasks.each do |task| %>
+                <div>
+                  <%= render "not_done_tasks", task: task %>
+                </div>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+
+
+      <div class="tasks_table">
+
+        <div class="task_title">
+          <h1 class=" text-xl text-yellow-500 text-opacity-60">Done Tasks</h1>
+        </div>
+
+        <div class="max-w-full">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody id="done_body">
+              <% @done_tasks.each do |task| %>
+                <div>
+                  <%= render "done_tasks", task: task %>
+                </div>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
